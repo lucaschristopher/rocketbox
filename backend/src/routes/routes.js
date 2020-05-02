@@ -14,7 +14,7 @@ routes.post("/boxes", BoxController.store);
 
 // Allows to send one file at a time (field in the request body = "file")
 routes.post(
-  "/boxes/:idBox/files",
+  "/boxes/:id/files",
   multer(multerConfig).single("file"),
   FileController.store
 );

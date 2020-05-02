@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Represents a file in the application
 const FileSchema = new mongoose.Schema(
   {
     title: {
@@ -12,6 +13,7 @@ const FileSchema = new mongoose.Schema(
     }
   },
   {
+    // Creates fields "createdAt" and "updatedAt"
     timestamps: true,
     // Every time the FileSchema is converted to Object or JSON,
     // load automatically the virtual field
@@ -22,7 +24,8 @@ const FileSchema = new mongoose.Schema(
 
 // Virtual field
 FileSchema.virtual("url").get(function() {
-  return `http://localhost:3355/files/${encodeURIComponent(this.path)}`;
+  const url = process.env.URL || "http://localhost:3355";
+  return `${url}/files/${encodeURIComponent(this.path)}`;
 });
 
 module.exports = mongoose.model("File", FileSchema);

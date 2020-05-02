@@ -3,8 +3,8 @@ const File = require("../models/File");
 
 class FileController {
   async store(req, res) {
-    const { idBox } = req.params;
-    const box = await Box.findById(idBox);
+    const { id } = req.params;
+    const box = await Box.findById(id);
 
     const file = await File.create({
       title: req.file.originalname,

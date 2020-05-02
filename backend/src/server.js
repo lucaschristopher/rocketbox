@@ -12,10 +12,10 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 
 io.on("connection", socket => {
-  // Socket is a representation of the real-time connection
+  // "socket" variable is a representation of the real-time connection
   // between the user and the server
   socket.on("connectRoom", box => {
-    socket.join(box);
+    socket.join(box); // isolates the user from all other users of the application
   });
 });
 
@@ -63,7 +63,7 @@ app.use("/files", express.static(path.resolve(__dirname, "..", "tmp")));
 // App routes
 app.use(require("./routes/routes"));
 
-const port = 3355;
+const port = process.env.PORT || 3355;
 
 // Listens requests with HTTP protocol and WS protocol
 server.listen(port, () => {

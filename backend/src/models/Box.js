@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Represents a folder in the application
 const BoxSchema = new mongoose.Schema(
   {
     title: {
@@ -8,6 +9,7 @@ const BoxSchema = new mongoose.Schema(
     },
     files: [{ type: mongoose.Schema.Types.ObjectId, ref: "File" }]
   },
+  // Creates fields "createdAt" and "updatedAt"
   { timestamps: true }
 );
 
