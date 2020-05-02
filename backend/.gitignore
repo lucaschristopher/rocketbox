@@ -2,3 +2,7 @@ node_modules/
 *.lock
 tmp/*
 !tmp/.gitkeep
+
+# cache
+package-lock.json
+yarn.lock
