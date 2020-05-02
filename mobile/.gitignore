@@ -58,3 +58,8 @@ buck-out/
 # CocoaPods
 /ios/Pods/
 avd
+
+# cache
+package-lock.json
+yarn.lock
+*.lock
